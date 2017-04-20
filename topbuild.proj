@@ -1,0 +1,24 @@
+
+[project]
+  id = padtec.proj.CStructGen
+
+[resources]
+  [[padtec.fw.rsc.toolchain.gnu.x86_64.1]]
+    type = toolchain
+
+  [[padtec.fw.rsc.toolchain.padlinux]]
+    type = toolchain
+
+# target debug-test is not working
+[build]
+  type = shell
+  targets = release,
+
+[install]
+  output = build/dist
+  bin = bin/*,
+
+[components]
+
+  [[padtec.fw.rsc.build.cmake.common]]
+    version = 1.0.3

@@ -19,15 +19,6 @@ if test -z "$SHA1SUM_TOOL";
    then AC_MSG_WARN([sha1sum not found - install it with apt-get install or via the systems package manager])
 fi
 
-# From https://nerdland.net/2009/07/detecting-c-libraries-with-autotools
-AC_CHECK_LIB([gtest_main], [main],
-  [HAVE_GTEST=1] [GTEST_LIBS="$TEST_LIBS -lgtest -lpthread -lgtest_main"],
-  AC_MSG_WARN([libgtest is not installed.]))
-
-if test -z "$HAVE_GTEST";
-  then PKG_CHECK_MODULES([GTEST], [gtest-1.6.0], [HAVE_GTEST_PKG=1])
-fi
-
 AC_CONFIG_HEADERS([config.h])
 AC_PROG_CXX
 LT_INIT([static])
